@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Koffer {
     int kofferWert;
     int kofferZahl;
     int playerChoice;
-    int[] werte = {1,2,5,10,20,50,100,250,500,750,1000,2500,5000, 10000,20000,25000,50000,100000, 150000,250000};
+    Integer[] werte = {1,2,5,10,20,50,100,250,500,750,1000,2500,5000, 10000,20000,25000,50000,100000, 150000,250000};
     public static ArrayList<Koffer> KofferListe = new ArrayList<Koffer>();
 
 
@@ -31,18 +34,23 @@ public class Koffer {
         return KofferListe;
     }
 
-    public  ArrayList<Koffer> initKofferWert() {
-            for (int i = 0; i < KofferListe.size(); i++) {
-                KofferListe.get(i).setKofferWert(werte[i]);
-            }
+    public ArrayList<Koffer> initKofferWert() {
+        List<Integer> intList = Arrays.asList(werte);
 
+        Collections.shuffle(intList);
+        // Convert the shuffled list back to an int array
+        intList.toArray(werte);
 
+        for (int i = 0; i < KofferListe.size(); i++) {
+            KofferListe.get(i).setKofferWert(werte[i]);
+        }
         return KofferListe;
     }
 
-//    public static String toString() {
-//        return KofferListe.toString();
-//    }
+    public static void openKoffer() {
+
+    }
+
     public int getKofferWert() {
         return kofferWert;
     }
@@ -67,11 +75,12 @@ public class Koffer {
         this.playerChoice = playerChoice;
     }
 
-    public int[] getWerte() {
+    public Integer[] getWerte() {
         return werte;
     }
 
-    public void setWerte(int[] werte) {
+    public void setWerte(Integer[] werte) {
         this.werte = werte;
     }
 }
+
