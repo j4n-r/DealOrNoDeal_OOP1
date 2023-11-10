@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
+
 
 public class Koffer {
     int kofferWert;
@@ -9,7 +9,7 @@ public class Koffer {
     boolean playerChoice;
     public static ArrayList<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
 
-    public static ArrayList<Koffer> kofferListe = new ArrayList<Koffer>();
+    public static ArrayList<Koffer> kofferListe = new ArrayList<>();
 
 
     public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
@@ -27,12 +27,12 @@ public class Koffer {
         this.kofferZahl = KofferZahl;
     }
 
-    public static ArrayList<Koffer> initKoffer() {
+    public static void initKoffer() {
 
         for (int i = 1; i <= 20; i++) {
             kofferListe.add(new Koffer(i));
         }
-        return kofferListe;
+
     }
 
     public static void initKofferWert() {
@@ -44,17 +44,6 @@ public class Koffer {
 
     }
 
-
-//    public static void printKofferWert() {
-//
-//        System.out.print("Verfügbare Werte: ");
-//        for (Koffer koffer : kofferListe) {
-//            System.out.print(koffer.getKofferWert() + " ");
-//        }
-//
-//        System.out.println();
-//    }
-
     public static Koffer findKofferByZahl(int targetKofferZahl) {
         for (Koffer koffer : Koffer.kofferListe) {
             if (koffer.getKofferZahl() == targetKofferZahl) {
@@ -62,11 +51,6 @@ public class Koffer {
             }
         }
         return null; // Koffer with the specified kofferZahl not found
-    }
-
-
-    public static void openKoffer(Koffer openedKoffer) {
-
     }
 
     public static ArrayList<Integer> getWerte() {

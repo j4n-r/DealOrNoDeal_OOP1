@@ -1,6 +1,3 @@
-import com.sun.nio.file.ExtendedWatchEventModifier;
-
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Game {
@@ -41,7 +38,7 @@ public class Game {
                     openKoffer();
                     return;
                 }
-                System.out.println("In dem geöffneten Koffert sind: " + openedKoffer.getKofferWert());
+                System.out.println("In dem geöffneten Koffer sind: " + openedKoffer.getKofferWert());
 
                 Koffer.kofferListe.remove(openedKoffer);
                 Koffer.werte.remove(Integer.valueOf(openedKoffer.getKofferWert()));
