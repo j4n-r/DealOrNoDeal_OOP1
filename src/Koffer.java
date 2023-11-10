@@ -6,13 +6,13 @@ import java.util.List;
 public class Koffer {
     int kofferWert;
     int kofferZahl;
-    int playerChoice;
-    private static ArrayList<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
+    boolean playerChoice;
+    public static ArrayList<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
 
     public static ArrayList<Koffer> kofferListe = new ArrayList<Koffer>();
 
 
-    public Koffer(int kofferWert, int kofferZahl, int playerChoice) {
+    public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
         this.kofferWert = kofferWert;
         this.playerChoice = playerChoice;
         this.kofferZahl = kofferZahl;
@@ -44,14 +44,6 @@ public class Koffer {
 
     }
 
-    public static void printRemainingKoffer() {
-        System.out.print("Verfügbare Koffer: ");
-        for (Koffer koffer : kofferListe) {
-            System.out.print(koffer.getKofferZahl() + " ");
-        }
-
-        System.out.println();
-    }
 
 //    public static void printKofferWert() {
 //
@@ -63,18 +55,17 @@ public class Koffer {
 //        System.out.println();
 //    }
 
-    public static void printRemainingWerte() {
-        ArrayList<Integer> sortedList = new ArrayList<>(werte);
-        Collections.sort(sortedList);
-        System.out.print("Verfügbare Werte: ");
-        for (int wert : sortedList) {
-            System.out.print(wert + " ");
+    public static Koffer findKofferByZahl(int targetKofferZahl) {
+        for (Koffer koffer : Koffer.kofferListe) {
+            if (koffer.getKofferZahl() == targetKofferZahl) {
+                return koffer; // Found the desired Koffer
+            }
         }
-        System.out.println();
-
+        return null; // Koffer with the specified kofferZahl not found
     }
 
-    public static void openKoffer() {
+
+    public static void openKoffer(Koffer openedKoffer) {
 
     }
 
@@ -102,12 +93,15 @@ public class Koffer {
         this.kofferZahl = kofferZahl;
     }
 
-    public int getPlayerChoice() {
+    public boolean getPlayerChoice() {
         return playerChoice;
     }
 
-    public void setPlayerChoice(int playerChoice) {
-        this.playerChoice = playerChoice;
+    public static void setPlayerChoice(Koffer targetKoffer) {
+        targetKoffer.playerChoice = true;
+        System.out.println(targetKoffer.kofferWert);
+        System.out.println(targetKoffer.kofferZahl);
+        System.out.println(targetKoffer.playerChoice);
     }
 
 }

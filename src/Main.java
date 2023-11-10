@@ -1,11 +1,14 @@
 public class Main {
     public static void main(String[] args) {
         Koffer.initKoffer();
-       Koffer.initKofferWert();
+        Koffer.initKofferWert();
+        Tafel.printRemainingKoffer();
+        Tafel.printRemainingWerte();
 
-       Koffer.printRemainingKoffer();
-        Koffer.printRemainingWerte();
-
+        Koffer.setPlayerChoice(Game.getPlayersChoice());
+        Game.openKoffer();
+        Tafel.printRemainingKoffer();
+        Tafel.printRemainingWerte();
 
     }
 }

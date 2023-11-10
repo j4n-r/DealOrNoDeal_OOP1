@@ -8,23 +8,24 @@ fünfte Runde 2 Koffer
 letzte runde eine Box
 
 **Koffer**:
-- Wert haben
+- ~~Wert haben~~ 
 - Geöffnet werden
-- Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden
+
 
 **Bank**:
 - Angebot nach jeder Runde schicken
 - checken ob das Angebot angenommen wurde 
 
 **Tafel**:
-- Anzeigen der Wertetafel
+- ~~Anzeigen der Wertetafel~~
 - Streichen von Werten, wenn ein Koffer geöffnet wird
-- Anzeigen von übrigen Koffern
+- ~~Anzeigen von übrigen Koffern~~
+
 
 **Game**:
 - Runden einleiten 
+- Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden
 - Koffer öffnen 
-
 
 **Main**: 
 - Spiel starten
