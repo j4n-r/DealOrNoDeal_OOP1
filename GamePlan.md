@@ -3,7 +3,7 @@
 20 Koffer 
 Geldbeträge: 1,2,5,10,20,50,100,250,500,750,1000,2500,10.000,20.000,25.000,50.000,100.000, 150.000,250.000
 
-"Goldenen Koffer" wählen, welche nicht geöffnet werden darf
+"Goldenen Koffer" wählen, welche nicht geöffnet werden darf.
 
 - Erste Runde 6 Koffer öffnen
 - zweite bis vierte Runde 3 Koffer,
@@ -24,7 +24,7 @@ Geldbeträge: 1,2,5,10,20,50,100,250,500,750,1000,2500,10.000,20.000,25.000,50.0
 - Anzeigen von übrigen Koffern
 
 
-## Game:
+## Spiel:
 - Runden einleiten 
 - Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden
 - Koffer öffnen

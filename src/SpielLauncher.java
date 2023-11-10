@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class GameLauncher {
+public class SpielLauncher {
     public static void startGame() {
         Koffer.initKoffer();
         Koffer.initKofferWert();
         Tafel.printRemainingKoffer();
         Tafel.printRemainingWerte();
-        Koffer.setPlayerChoice(Game.getPlayersChoice());
+        Koffer.setPlayerChoice(Spiel.getPlayersChoice());
 
 
         for (int round = 1; round <= 7; round++) {
@@ -37,7 +37,7 @@ public class GameLauncher {
         for (int i = 0; i < numberOfActions; i++) {
             Tafel.printRemainingKoffer();
             Tafel.printRemainingWerte();
-            Game.openKoffer();
+            Spiel.openKoffer();
         }
         return Bank.makeOffer();
     }
@@ -46,9 +46,9 @@ public class GameLauncher {
         System.out.println("Es sind nur noch 2 Koffer übrig, wollen Sie ihren Koffer behalten oder tauschen?");
         Scanner scanner = new Scanner(System.in);
         String userChoice = scanner.nextLine();
-        int gewinn = Game.switchCases(userChoice);
+        int gewinn = Spiel.switchCases(userChoice);
         System.out.println("In ihrem Koffer befinden sich € " +  gewinn );
-        System.out.println("Glückwunsch sei haben € " + gewinn + " gewonnen.");
+        System.out.println("Glückwunsch sie haben € " + gewinn + " gewonnen.");
 
     }
 

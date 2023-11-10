@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Game {
+public class Spiel {
     static Scanner scanner = new Scanner(System.in);
     public static Koffer getPlayersChoice(){
 
@@ -57,12 +57,10 @@ public class Game {
     }
 
     public static int switchCases(String userChoice) {
-
         if (userChoice.equals("behalten")) {
             for (Koffer koffer: Koffer.getKofferListe()) {
                 if (koffer.getPlayerChoice()) {
-                    return koffer.getKofferWert();
-                }
+                    return koffer.getKofferWert();}
             }
 
         } else if(userChoice.equals("tauschen")) {
