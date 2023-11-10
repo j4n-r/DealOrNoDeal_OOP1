@@ -7,8 +7,9 @@ public class Koffer {
     int kofferWert;
     int kofferZahl;
     int playerChoice;
-    Integer[] werte = {1,2,5,10,20,50,100,250,500,750,1000,2500,5000, 10000,20000,25000,50000,100000, 150000,250000};
-    public static ArrayList<Koffer> KofferListe = new ArrayList<Koffer>();
+    private static ArrayList<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
+
+    public static ArrayList<Koffer> kofferListe = new ArrayList<Koffer>();
 
 
     public Koffer(int kofferWert, int kofferZahl, int playerChoice) {
@@ -26,29 +27,63 @@ public class Koffer {
         this.kofferZahl = KofferZahl;
     }
 
-    public static ArrayList<Koffer> initKoffer(){
+    public static ArrayList<Koffer> initKoffer() {
 
-        for (int i = 1 ; i <= 20 ; i++) {
-            KofferListe.add(new Koffer(i));
+        for (int i = 1; i <= 20; i++) {
+            kofferListe.add(new Koffer(i));
         }
-        return KofferListe;
+        return kofferListe;
     }
 
-    public ArrayList<Koffer> initKofferWert() {
-        List<Integer> intList = Arrays.asList(werte);
+    public static void initKofferWert() {
+        Collections.shuffle(werte);
 
-        Collections.shuffle(intList);
-        // Convert the shuffled list back to an int array
-        intList.toArray(werte);
-
-        for (int i = 0; i < KofferListe.size(); i++) {
-            KofferListe.get(i).setKofferWert(werte[i]);
+        for (int i = 0; i < kofferListe.size(); i++) {
+            kofferListe.get(i).setKofferWert(werte.get(i));
         }
-        return KofferListe;
+
+    }
+
+    public static void printRemainingKoffer() {
+        System.out.print("Verfügbare Koffer: ");
+        for (Koffer koffer : kofferListe) {
+            System.out.print(koffer.getKofferZahl() + " ");
+        }
+
+        System.out.println();
+    }
+
+//    public static void printKofferWert() {
+//
+//        System.out.print("Verfügbare Werte: ");
+//        for (Koffer koffer : kofferListe) {
+//            System.out.print(koffer.getKofferWert() + " ");
+//        }
+//
+//        System.out.println();
+//    }
+
+    public static void printRemainingWerte() {
+        ArrayList<Integer> sortedList = new ArrayList<>(werte);
+        Collections.sort(sortedList);
+        System.out.print("Verfügbare Werte: ");
+        for (int wert : sortedList) {
+            System.out.print(wert + " ");
+        }
+        System.out.println();
+
     }
 
     public static void openKoffer() {
 
+    }
+
+    public static ArrayList<Integer> getWerte() {
+        return werte;
+    }
+
+    public static void setWerte(ArrayList<Integer> werte) {
+        Koffer.werte = werte;
     }
 
     public int getKofferWert() {
@@ -75,12 +110,7 @@ public class Koffer {
         this.playerChoice = playerChoice;
     }
 
-    public Integer[] getWerte() {
-        return werte;
-    }
-
-    public void setWerte(Integer[] werte) {
-        this.werte = werte;
-    }
 }
+
+
 
