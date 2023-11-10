@@ -14,7 +14,7 @@ public class Tafel {
     public static void printRemainingWerte() {
         ArrayList<Integer> sortedList = new ArrayList<>(Koffer.werte);
         Collections.sort(sortedList);
-        System.out.print("Verfügbare Werte: ");
+        System.out.print("Verfügbare Preise: ");
         for (int wert : sortedList) {
             System.out.print(wert + " ");
         }

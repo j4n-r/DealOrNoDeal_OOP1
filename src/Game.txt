@@ -9,7 +9,7 @@ letzte runde eine Box
 
 **Koffer**:
 - ~~Wert haben~~ 
-- Geöffnet werden
+- ~~Geöffnet werden~~
 
 
 **Bank**:
@@ -18,14 +18,14 @@ letzte runde eine Box
 
 **Tafel**:
 - ~~Anzeigen der Wertetafel~~
-- Streichen von Werten, wenn ein Koffer geöffnet wird
+  - ~~Streichen von Werten, wenn ein Koffer geöffnet wird~~
 - ~~Anzeigen von übrigen Koffern~~
 
 
 **Game**:
 - Runden einleiten 
-- Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden
-- Koffer öffnen 
+- ~~Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden~~
+- ~~Koffer öffnen~~
 
 **Main**: 
 - Spiel starten

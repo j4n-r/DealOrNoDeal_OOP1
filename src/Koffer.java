@@ -99,9 +99,7 @@ public class Koffer {
 
     public static void setPlayerChoice(Koffer targetKoffer) {
         targetKoffer.playerChoice = true;
-        System.out.println(targetKoffer.kofferWert);
-        System.out.println(targetKoffer.kofferZahl);
-        System.out.println(targetKoffer.playerChoice);
+
     }
 
 }
