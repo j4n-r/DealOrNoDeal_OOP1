@@ -28,5 +28,5 @@ Der Spieler gewinnt die Summe, die sich in seinem Koffer befindet.
 
 ## Installation
 
-Dieses Spiel erfordert höchst wahrscheinlich Java 12 zum Ausführen. 
+Dieses Spiel sollte ab Java 12 funtkionieren. 
 Nach dem Klonen des Repositorys können Sie das Spiel von der Main-Klasse aus starten.
