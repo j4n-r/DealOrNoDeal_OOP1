@@ -1,15 +1,12 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 
 public class Koffer {
-    int kofferWert;
-    int kofferZahl;
-    boolean playerChoice;
-    public static ArrayList<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
-
-    public static ArrayList<Koffer> kofferListe = new ArrayList<>();
+    private int kofferWert;
+    private int kofferZahl;
+    private boolean playerChoice;
+    private static List<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
+    private static List<Koffer> kofferListe = new ArrayList<>();
 
 
     public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
@@ -23,8 +20,8 @@ public class Koffer {
         this.kofferZahl = kofferZahl;
     }
 
-    public Koffer(int KofferZahl) {
-        this.kofferZahl = KofferZahl;
+    public Koffer(int kofferZahl) {
+        this.kofferZahl = kofferZahl;
     }
 
     public static void initKoffer() {
@@ -36,8 +33,20 @@ public class Koffer {
     }
 
     public static void initKofferWert() {
-        Collections.shuffle(werte);
 
+//        Collections.shuffle(werte); // Starts from the back, switches the current value with a random value from the front
+
+      for (int i = werte.size() -1; i > 0; i--) {
+            Integer temp = 0;
+            temp = werte.get(i); // store current value in temp
+            Random random = new Random();
+
+            int randomIndex = random.nextInt(werte.size() - 1); // get random index
+            werte.set(i, werte.get(randomIndex)); // set current value to value from random index
+            werte.set(randomIndex, temp); // set the value from random index to temp (previous value) (swap values essentially)
+        }
+
+      // set KofferWert based on KofferListe
         for (int i = 0; i < kofferListe.size(); i++) {
             kofferListe.get(i).setKofferWert(werte.get(i));
         }
@@ -53,31 +62,37 @@ public class Koffer {
         return null; // Koffer with the specified kofferZahl not found
     }
 
-    public static ArrayList<Integer> getWerte() {
+    public static List<Integer> getWerte() {
         return werte;
     }
 
     public static void setWerte(ArrayList<Integer> werte) {
+
         Koffer.werte = werte;
     }
 
     public int getKofferWert() {
+
         return kofferWert;
     }
 
     public void setKofferWert(int kofferWert) {
+
         this.kofferWert = kofferWert;
     }
 
     public int getKofferZahl() {
+
         return kofferZahl;
     }
 
     public void setKofferZahl(int kofferZahl) {
+
         this.kofferZahl = kofferZahl;
     }
 
     public boolean getPlayerChoice() {
+
         return playerChoice;
     }
 
@@ -86,6 +101,17 @@ public class Koffer {
 
     }
 
+    public static void setWerte(List<Integer> werte) {
+        Koffer.werte = werte;
+    }
+
+    public static List<Koffer> getKofferListe() {
+        return kofferListe;
+    }
+
+    public static void setKofferListe(List<Koffer> kofferListe) {
+        Koffer.kofferListe = kofferListe;
+    }
 }
 
 

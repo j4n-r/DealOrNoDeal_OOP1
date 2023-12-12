@@ -26,26 +26,27 @@ public class Game {
     public static void openKoffer() {
 
         while (true) {
-            System.out.println("Welchen Koffer möchten sie öffnen? ");
+            System.out.println("Welchen Koffer möchten Sie öffnen? ");
 
             try {
                 Koffer openedKoffer = Koffer.findKofferByZahl(scanner.nextInt());
 
                 if (openedKoffer.getPlayerChoice()) {
-                    System.err.println("Dies ist dein Goldener Koffer, diesen kannst du nicht öffnen");
+                    System.err.println("Dies ist Ihr Goldener Koffer, diesen können Sie nicht öffnen");
                     Tafel.printRemainingKoffer();
                     Tafel.printRemainingWerte();
                     openKoffer();
                     return;
                 }
-                System.out.println("In dem geöffneten Koffer sind: " + openedKoffer.getKofferWert());
+                System.out.println("In dem geöffneten Koffer sind: € " + openedKoffer.getKofferWert());
 
-                Koffer.kofferListe.remove(openedKoffer);
-                Koffer.werte.remove(Integer.valueOf(openedKoffer.getKofferWert()));
+
+                Koffer.getKofferListe().remove(openedKoffer);
+                Koffer.getWerte().remove(Integer.valueOf(openedKoffer.getKofferWert()));
                 return;
 
             } catch (Exception e)  {
-                System.err.println("Falsches Eingabeformat oder der Koffer wurde schon geöffnet, probieren sie es nochmal");
+                System.err.println("Falsches Eingabeformat oder der Koffer wurde schon geöffnet, probieren Sie es nochmal");
                 scanner.next();
                 Tafel.printRemainingKoffer();
                 Tafel.printRemainingWerte();
@@ -58,16 +59,16 @@ public class Game {
     public static int switchCases(String userChoice) {
 
         if (userChoice.equals("behalten")) {
-            for (Koffer koffer: Koffer.kofferListe) {
-                if (koffer.playerChoice) {
-                    return koffer.kofferWert;
+            for (Koffer koffer: Koffer.getKofferListe()) {
+                if (koffer.getPlayerChoice()) {
+                    return koffer.getKofferWert();
                 }
             }
 
         } else if(userChoice.equals("tauschen")) {
-            for (Koffer koffer: Koffer.kofferListe) {
-                if (!koffer.playerChoice) {
-                    return koffer.kofferWert;
+            for (Koffer koffer: Koffer.getKofferListe()) {
+                if (!koffer.getPlayerChoice()) {
+                    return koffer.getKofferWert();
                 }
             }
         }

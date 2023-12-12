@@ -7,92 +7,91 @@ public class GameLauncher {
         Tafel.printRemainingKoffer();
         Tafel.printRemainingWerte();
         Koffer.setPlayerChoice(Game.getPlayersChoice());
+
         if (firstRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }
         if (secondRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }
         if (thirdRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }if (fourthRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }if (fifthRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }if (sixthRound()) {
-            System.out.println("Das Spiel ist zu ende sie haben " + Bank.calcOffer() + " Euro gewonnen");
+            printWinner();
             return;
         }
         lastRound();
-
-
     }
-    public static boolean firstRound() {
+
+    private static void printWinner() {
+        System.out.printf("Das Spiel ist zu ende du hast € %.2f gewonnen", Bank.calcOffer());
+    }
+
+
+    private static boolean firstRound() {
         for (int i = 0; i < 6; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
-    public static boolean secondRound() {
+    private static boolean secondRound() {
         for (int i = 0; i < 3; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
 
-    public static boolean thirdRound() {
+    private static boolean thirdRound() {
         for (int i = 0; i < 3; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
 
-    public static boolean fourthRound() {
+    private static boolean fourthRound() {
         for (int i = 0; i < 3; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
 
-    public static boolean fifthRound() {
+    private static boolean fifthRound() {
         for (int i = 0; i < 2; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
 
-    public static boolean sixthRound() {
+    private static boolean sixthRound() {
         for (int i = 0; i < 1; i++) {
-            Tafel.printRemainingKoffer();
-            Tafel.printRemainingWerte();
-            Game.openKoffer();
+            playRound();
         }
         return Bank.makeOffer();
     }
 
-    public static void lastRound() {
-        System.out.println("Es sind nur noch 2 Koffer übrig, wollen sie ihren Koffer behalten oder tauschen?");
+    private static void lastRound() {
+        System.out.println("Es sind nur noch 2 Koffer übrig, wollen Sie ihren Koffer behalten oder tauschen?");
         Scanner scanner = new Scanner(System.in);
         String userChoice = scanner.nextLine();
         int gewinn = Game.switchCases(userChoice);
-        System.out.println("In ihrem Koffer befinden sich " +  gewinn + " Euro");
-        System.out.println("Glückwunsch sei haben " + gewinn + " Euro gewonnen.");
+        System.out.println("In ihrem Koffer befinden sich € " +  gewinn );
+        System.out.println("Glückwunsch sei haben € " + gewinn + " gewonnen.");
 
+    }
+
+    private static void playRound() {
+        Tafel.printRemainingKoffer();
+        Tafel.printRemainingWerte();
+        Game.openKoffer();
     }
 
 }
