@@ -8,26 +8,12 @@ public class GameLauncher {
         Tafel.printRemainingWerte();
         Koffer.setPlayerChoice(Game.getPlayersChoice());
 
-        if (firstRound()) {
-            printWinner();
-            return;
-        }
-        if (secondRound()) {
-            printWinner();
-            return;
-        }
-        if (thirdRound()) {
-            printWinner();
-            return;
-        }if (fourthRound()) {
-            printWinner();
-            return;
-        }if (fifthRound()) {
-            printWinner();
-            return;
-        }if (sixthRound()) {
-            printWinner();
-            return;
+
+        for (int round = 1; round <= 7; round++) {
+            if (playRound(round)) {
+                printWinner();
+                return;
+            }
         }
         lastRound();
     }
@@ -36,44 +22,22 @@ public class GameLauncher {
         System.out.printf("Das Spiel ist zu ende du hast € %.2f gewonnen", Bank.calcOffer());
     }
 
-
-    private static boolean firstRound() {
-        for (int i = 0; i < 6; i++) {
-            playRound();
+    private static boolean playRound(int round) {
+        switch (round) {
+            case 1 -> roundActions(6); // first round  (open 6 Koffer)
+            case 2,3,4 -> roundActions(3); // 2,3,4, round open 3 Koffer
+            case 5 -> roundActions(2); // 5 round open 2 Koffer
+            case 6 -> roundActions(1); // 6 round open 1 Koffer
+            default -> throw new IllegalArgumentException(); // required,  but should never happen
         }
-        return Bank.makeOffer();
-    }
-    private static boolean secondRound() {
-        for (int i = 0; i < 3; i++) {
-            playRound();
-        }
-        return Bank.makeOffer();
+        return false;
     }
 
-    private static boolean thirdRound() {
-        for (int i = 0; i < 3; i++) {
-            playRound();
-        }
-        return Bank.makeOffer();
-    }
-
-    private static boolean fourthRound() {
-        for (int i = 0; i < 3; i++) {
-            playRound();
-        }
-        return Bank.makeOffer();
-    }
-
-    private static boolean fifthRound() {
-        for (int i = 0; i < 2; i++) {
-            playRound();
-        }
-        return Bank.makeOffer();
-    }
-
-    private static boolean sixthRound() {
-        for (int i = 0; i < 1; i++) {
-            playRound();
+    private static boolean roundActions(int numberOfActions) {
+        for (int i = 0; i < numberOfActions; i++) {
+            Tafel.printRemainingKoffer();
+            Tafel.printRemainingWerte();
+            Game.openKoffer();
         }
         return Bank.makeOffer();
     }
@@ -88,10 +52,5 @@ public class GameLauncher {
 
     }
 
-    private static void playRound() {
-        Tafel.printRemainingKoffer();
-        Tafel.printRemainingWerte();
-        Game.openKoffer();
-    }
 
 }
