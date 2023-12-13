@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 
 public class Koffer {
@@ -7,8 +10,6 @@ public class Koffer {
     private boolean playerChoice;
     private static List<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
     private static List<Koffer> kofferListe = new ArrayList<>();
-
-
 
 
     public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
@@ -31,14 +32,13 @@ public class Koffer {
         for (int i = 1; i <= 20; i++) {
             kofferListe.add(new Koffer(i));
         }
-
     }
 
     public static void initKofferWert() {
 
 //        Collections.shuffle(werte); // Starts from the back, switches the current value with a random value from the front
 
-      for (int i = werte.size() -1; i > 0; i--) {
+        for (int i = werte.size() - 1; i > 0; i--) {
             Integer temp = 0;
             temp = werte.get(i); // store current value in temp
             Random random = new Random();
@@ -48,7 +48,7 @@ public class Koffer {
             werte.set(randomIndex, temp); // set the value from random index to temp (previous value) (swap values essentially)
         }
 
-      // set KofferWert based on KofferListe
+        // set KofferWert based on KofferListe
         for (int i = 0; i < kofferListe.size(); i++) {
             kofferListe.get(i).setKofferWert(werte.get(i));
         }

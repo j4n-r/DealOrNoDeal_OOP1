@@ -32,7 +32,6 @@ public class SpielLauncher {
     }
 
 
-
     private static boolean roundActions(int numberOfRounds) {
         for (int i = 0; i < numberOfRounds; i++) {
             Tafel.printRemainingKoffer();
@@ -47,7 +46,7 @@ public class SpielLauncher {
         Scanner scanner = new Scanner(System.in);
         String userChoice = scanner.nextLine();
         int gewinn = Spiel.switchCases(userChoice);
-        System.out.println("In ihrem Koffer befinden sich € " +  gewinn );
+        System.out.println("In ihrem Koffer befinden sich € " + gewinn);
         System.out.println("Glückwunsch sie haben € " + gewinn + " gewonnen.");
 
     }
