@@ -12,6 +12,7 @@ public class Spiel {
                 int userInput = scanner.nextInt();
 
                 if (userInput >= 1 && userInput <= 20) {
+                    System.out.println("Sie haben den Koffer Nr. " + userInput + " als ihren Goldenen Koffer festgelegt");
                     return Koffer.findKofferByZahl(userInput);
                 } else {
                     System.err.println("Sie müssen eine Zahl zwischen 1 und 20 eingeben");

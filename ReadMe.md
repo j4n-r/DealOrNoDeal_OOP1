@@ -25,6 +25,7 @@ Der Spieler gewinnt die Summe, die sich in seinem Koffer befindet.
 4. Öffnen Sie 2 Koffer in der fünften Runde.
 5. Öffnen Sie 1 Koffer in der letzten Runde.
 6. Nach jeder Runde macht die Bank ein Angebot. Sie können das Angebot annehmen oder weiter Koffer öffnen.
+7. Wenn alle bis auf einen Koffer geöffnet wurden, können Sie den letzten Koffer behalten oder gegen den "Goldenen Koffer" tauschen.
 
 ## Installation
 

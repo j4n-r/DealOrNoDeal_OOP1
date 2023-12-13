@@ -9,6 +9,8 @@ public class Koffer {
     private static List<Koffer> kofferListe = new ArrayList<>();
 
 
+
+
     public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
         this.kofferWert = kofferWert;
         this.playerChoice = playerChoice;

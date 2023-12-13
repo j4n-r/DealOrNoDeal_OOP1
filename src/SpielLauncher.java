@@ -8,8 +8,7 @@ public class SpielLauncher {
         Tafel.printRemainingWerte();
         Koffer.setPlayerChoice(Spiel.getPlayersChoice());
 
-
-        for (int round = 1; round <= 7; round++) {
+        for (int round = 1; round < 7; round++) {
             if (playRound(round)) {
                 printWinner();
                 return;
@@ -22,7 +21,7 @@ public class SpielLauncher {
         System.out.printf("Das Spiel ist zu ende Sie haben € %.2f gewonnen", Bank.calcOffer());
     }
 
-    private static boolean playRound(int round) {
+    private static boolean playRound(int round) throws IllegalArgumentException {
         return switch (round) {
             case 1 -> roundActions(6);  // first round  (open 6 Koffer)
             case 2, 3, 4 -> roundActions(3); // 2,3,4, round open 3 Koffer
@@ -34,8 +33,8 @@ public class SpielLauncher {
 
 
 
-    private static boolean roundActions(int numberOfActions) {
-        for (int i = 0; i < numberOfActions; i++) {
+    private static boolean roundActions(int numberOfRounds) {
+        for (int i = 0; i < numberOfRounds; i++) {
             Tafel.printRemainingKoffer();
             Tafel.printRemainingWerte();
             Spiel.openKoffer();

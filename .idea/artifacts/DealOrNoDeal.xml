@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DealOrNoDeal">
+    <output-path>$PROJECT_DIR$/out/artifacts/DealOrNoDeal</output-path>
+    <root id="archive" name="DealOrNoDeal.jar" />
+  </artifact>
+</component>
