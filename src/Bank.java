@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Bank {
+
     public static double calcOffer() {
 
         int sum = 0;

@@ -45,10 +45,10 @@ public class SpielLauncher {
         System.out.println("Es sind nur noch 2 Koffer übrig, wollen Sie ihren Koffer behalten oder tauschen?");
         Scanner scanner = new Scanner(System.in);
         String userChoice = scanner.nextLine();
-        int gewinn = Spiel.switchCases(userChoice);
+        int gewinn = Spiel.switchKoffer(userChoice);
         System.out.println("In ihrem Koffer befinden sich € " + gewinn);
         System.out.println("Glückwunsch sie haben € " + gewinn + " gewonnen.");
-
+        
     }
 
 

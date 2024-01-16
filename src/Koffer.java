@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class Koffer {
@@ -10,18 +7,6 @@ public class Koffer {
     private boolean playerChoice;
     private static List<Integer> werte = new ArrayList<>(Arrays.asList(1, 2, 5, 10, 20, 50, 100, 250, 500, 750, 1000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 150000, 250000));
     private static List<Koffer> kofferListe = new ArrayList<>();
-
-
-    public Koffer(int kofferWert, int kofferZahl, boolean playerChoice) {
-        this.kofferWert = kofferWert;
-        this.playerChoice = playerChoice;
-        this.kofferZahl = kofferZahl;
-    }
-
-    public Koffer(int kofferWert, int kofferZahl) {
-        this.kofferWert = kofferWert;
-        this.kofferZahl = kofferZahl;
-    }
 
     public Koffer(int kofferZahl) {
         this.kofferZahl = kofferZahl;
@@ -36,17 +21,17 @@ public class Koffer {
 
     public static void initKofferWert() {
 
-//        Collections.shuffle(werte); // Starts from the back, switches the current value with a random value from the front
+        Collections.shuffle(werte); // Starts from the back, switches the current value with a random value from the front
 
-        for (int i = werte.size() - 1; i > 0; i--) {
-            Integer temp = 0;
-            temp = werte.get(i); // store current value in temp
-            Random random = new Random();
-
-            int randomIndex = random.nextInt(werte.size() - 1); // get random index
-            werte.set(i, werte.get(randomIndex)); // set current value to value from random index
-            werte.set(randomIndex, temp); // set the value from random index to temp (previous value) (swap values essentially)
-        }
+//        for (int i = werte.size() - 1; i > 0; i--) {
+//            Integer temp = 0;
+//            temp = werte.get(i); // store current value in temp
+//            Random random = new Random();
+//
+//            int randomIndex = random.nextInt(werte.size() - 1); // get random index
+//            werte.set(i, werte.get(randomIndex)); // set current value to value from random index
+//            werte.set(randomIndex, temp); // set the value from random index to temp (previous value) (swap values essentially)
+//        }
 
         // set KofferWert based on KofferListe
         for (int i = 0; i < kofferListe.size(); i++) {

@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Spiel {
+
     static Scanner scanner = new Scanner(System.in);
 
-    public static Koffer getPlayersChoice() {
 
-        Scanner scanner = new Scanner(System.in);
+    public static Koffer getPlayersChoice() {
         try {
             System.out.println("Welchen Koffer würden sie gerne festlegen als Goldenen Koffer?");
             int userInput = scanner.nextInt();
@@ -52,25 +52,36 @@ public class Spiel {
         openKoffer();
     }
 
-    public static int switchCases(String userChoice) {
-        if (userChoice.equals("behalten")) {
-            for (Koffer koffer : Koffer.getKofferListe()) {
-                if (koffer.getPlayerChoice()) {
-                    return koffer.getKofferWert();
-                }
-            }
+    public static int switchKoffer(String userChoice) {
+        Koffer playerKoffer = null;
+        Koffer otherKoffer = null;
 
-        } else if (userChoice.equals("tauschen")) {
-            for (Koffer koffer : Koffer.getKofferListe()) {
-                if (!koffer.getPlayerChoice()) {
-                    return koffer.getKofferWert();
-                }
+
+        // loop over the last 2 Koffers and set the playerKoffer to the Koffer which has the playerChoice set to true
+        for (Koffer koffer : Koffer.getKofferListe()) {
+            if (koffer.getPlayerChoice()) {
+                playerKoffer = koffer;
+            } else {
+                otherKoffer = koffer;
             }
         }
-        System.err.println("Not a viable option");
-        switchCases(userChoice);
-        return 0;
+        // return the value of the Koffer which the player has chosen
+        switch (userChoice) {
+            case "behalten":
+                if (playerKoffer != null) {
+                    return playerKoffer.getKofferWert();
+                }
+                break;
+            case "tauschen":
+                if (otherKoffer != null) {
+                    return otherKoffer.getKofferWert();
+                }
+                break;
+            default:
+                System.err.println("Falsche Eingabe, bitte geben Sie behalten oder tauschen ein");
+        }
 
+        return 0;
     }
 
 }
