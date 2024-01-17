@@ -40,7 +40,7 @@ public class Spiel {
 
 
             Koffer.getKofferListe().remove(openedKoffer);
-            Koffer.getWerte().remove(Integer.valueOf(openedKoffer.getKofferWert()));
+            Koffer.getWerteListe().remove(Integer.valueOf(openedKoffer.getKofferWert()));
             return;
 
         } catch (Exception e) {

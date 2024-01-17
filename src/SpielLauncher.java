@@ -11,7 +11,7 @@ public class SpielLauncher {
         for (int round = 1; round < 7; round++) {
             if (playRound(round)) {
                 printWinner();
-                return;
+                return; // works because return value is void
             }
         }
         lastRound();
@@ -21,16 +21,15 @@ public class SpielLauncher {
         System.out.printf("Das Spiel ist zu ende Sie haben € %.2f gewonnen", Bank.calcOffer());
     }
 
-    private static boolean playRound(int round) throws IllegalArgumentException {
+    private static boolean playRound(int round){
         return switch (round) {
             case 1 -> roundActions(6);  // first round  (open 6 Koffer)
             case 2, 3, 4 -> roundActions(3); // 2,3,4, round open 3 Koffer
             case 5 -> roundActions(2); // 5 round open 2 Koffer
             case 6 -> roundActions(1); // 6 round open 1 Koffer
-            default -> throw new IllegalArgumentException(); // required,  but should never happen
+            default  -> false;
         };
     }
-
 
     private static boolean roundActions(int numberOfRounds) {
         for (int i = 0; i < numberOfRounds; i++) {
@@ -48,8 +47,6 @@ public class SpielLauncher {
         int gewinn = Spiel.switchKoffer(userChoice);
         System.out.println("In ihrem Koffer befinden sich € " + gewinn);
         System.out.println("Glückwunsch sie haben € " + gewinn + " gewonnen.");
-        
+
     }
-
-
 }

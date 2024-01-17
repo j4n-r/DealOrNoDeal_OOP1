@@ -5,10 +5,10 @@ public class Bank {
     public static double calcOffer() {
 
         int sum = 0;
-        for (int werte : Koffer.getWerte()) {
+        for (int werte : Koffer.getWerteListe()) {
             sum += werte;
         }
-        return (sum / (double) Koffer.getWerte().size()) * 0.6;
+        return (sum / (double) Koffer.getWerteListe().size()) * 0.6;
     }
 
     public static boolean makeOffer() {

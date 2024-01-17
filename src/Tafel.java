@@ -21,7 +21,7 @@ public class Tafel {
 
 
     public static void printRemainingWerte() {
-        ArrayList<Integer> sortedList = new ArrayList<>(Koffer.getWerte());
+        ArrayList<Integer> sortedList = new ArrayList<>(Koffer.getWerteListe());
         Collections.sort(sortedList);
 
         System.out.println("Verfügbare Preise:");

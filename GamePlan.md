@@ -23,10 +23,11 @@ Geldbeträge: 1,2,5,10,20,50,100,250,500,750,1000,2500,10.000,20.000,25.000,50.0
 - Streichen von Werten, wenn ein Koffer geöffnet wird
 - Anzeigen von übrigen Koffern
 
-
+### SpielLauncher
+- Runden einleiten
+- 
 ## Spiel:
-- Runden einleiten 
-- Anfangskoffer muss gewählt werden, welche nicht geöffnet wird in den Runden
+- Goldener Koffer muss gewählt werden, welche nicht geöffnet wird in den Runden
 - Koffer öffnen
 
 ## Main: 
